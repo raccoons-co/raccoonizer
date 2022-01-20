@@ -10,19 +10,19 @@ help: ## Print this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: aws-cdk
-aws-cdk:  ## Install AWS CDK
+aws-cdk: ## Install AWS CDK
 	$(sh_c) 'curl -fsSL https://raw.githubusercontent.com/raccoons-co/cloud-quarks/main/aws-cdk/install | sudo sh'
 
 .PHONY: bootstrap-cdk
-bootstrap-cdk:  ## Bootstrap AWS CDK environment
+bootstrap-cdk: ## Bootstrapping AWS CDK environment. Deploy Bootstrap Stack.
 	$(sh_c) 'cdk bootstrap'
 
 .PHONY: build
-build:  ## Build App Stack
+build: ## Build App Stack
 	$(sh_c) 'mvn compile -q'
 
 .PHONY: deploy
-deploy:  ## Deploy App Stack
+deploy: build ## Deploy App Stack
 	$(sh_c) 'cdk synth && cdk deploy'
 
 .PHONY: destroy
