@@ -24,3 +24,7 @@ build:  ## Build App Stack
 .PHONY: deploy
 deploy:  ## Deploy App Stack
 	$(sh_c) 'cdk synth && cdk deploy'
+
+.PHONY: destroy
+destroy:  ## Destroy App Stack
+	$(sh_c) 'cdk destroy'
