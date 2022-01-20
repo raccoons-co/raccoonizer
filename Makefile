@@ -13,7 +13,14 @@ help: ## Print this help
 aws-cdk:  ## Install AWS CDK
 	$(sh_c) 'curl -fsSL https://raw.githubusercontent.com/raccoons-co/cloud-quarks/main/aws-cdk/install | sudo sh'
 
-.PHONY: cdk-bootstrap
-cdk-bootstrap:  ## Bootstrap AWS CDK environment
+.PHONY: bootstrap-cdk
+bootstrap-cdk:  ## Bootstrap AWS CDK environment
 	$(sh_c) 'cdk bootstrap'
 
+.PHONY: build
+build:  ## Build App Stack
+	$(sh_c) 'mvn compile -q'
+
+.PHONY: deploy
+deploy:  ## Deploy App Stack
+	$(sh_c) 'cdk synth && cdk deploy'
