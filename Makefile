@@ -3,7 +3,6 @@
 # Using 'sh -c' can avoid situation then VCS do not preserves file permissions
 sh_c := sh -c
 
-
 .PHONY: help
 help: ## Print this help
 	@echo "List of available commands:"
