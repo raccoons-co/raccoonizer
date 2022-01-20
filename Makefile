@@ -20,10 +20,6 @@ aws-cdk: ## Install AWS CDK
 bootstrap-cdk: ## Bootstrapping AWS CDK environment
 	$(sh_c) 'cdk bootstrap'
 
-.PHONY: init-app
-init-app: ## Initialize the CDK App
-	$(sh_c) 'cdk init app --language java'
-
 .PHONY: build
 build: ## Build App Stack
 	$(sh_c) 'mvn compile -q'
