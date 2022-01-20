@@ -12,3 +12,8 @@ help: ## Print this help
 .PHONY: aws-cdk
 aws-cdk:  ## Install AWS CDK
 	$(sh_c) 'curl -fsSL https://raw.githubusercontent.com/raccoons-co/cloud-quarks/main/aws-cdk/install | sudo sh'
+
+.PHONY: cdk-bootstrap
+bootstrap:  ## Bootstrap AWS CDK environment
+	$(sh_c) 'cdk bootstrap'
+
